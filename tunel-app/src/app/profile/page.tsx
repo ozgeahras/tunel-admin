@@ -1,8 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 // import { useLanguage } from '@/contexts/LanguageContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { CVData, mockUserCV, createEmptyCV, AIAnalysisResult, PersonalInfo, WorkExperience, Education, Skill, Project } from '@/lib/cvData';
+import LoginModal from '@/components/auth/LoginModal';
 import PersonalInfoForm from '@/components/cv/PersonalInfoForm';
 import WorkExperienceForm from '@/components/cv/WorkExperienceForm';
 import EducationForm from '@/components/cv/EducationForm';
@@ -13,10 +16,81 @@ import CVImport from '@/components/cv/CVImport';
 type CVSection = 'overview' | 'personal' | 'experience' | 'education' | 'skills' | 'projects' | 'import';
 
 export default function ProfilePage() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
   // const { t } = useLanguage();
   const [cvData, setCvData] = useState<CVData>(mockUserCV);
   const [activeSection, setActiveSection] = useState<CVSection>('overview');
   const [hasChanges, setHasChanges] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (!loading && !user) {
+      setIsLoginModalOpen(true);
+    }
+  }, [user, loading]);
+
+  if (loading) {
+    return (
+      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
+        <div className="max-w-md mx-auto text-center">
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <div className="text-6xl mb-4">🔒</div>
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Login Required</h1>
+            <p className="text-gray-600 mb-6">
+              You need to sign in to access your profile and CV builder.
+            </p>
+            <button
+              onClick={() => setIsLoginModalOpen(true)}
+              className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+        
+        <LoginModal 
+          isOpen={isLoginModalOpen} 
+          onClose={() => {
+            setIsLoginModalOpen(false);
+            router.push('/');
+          }} 
+          defaultType="individual"
+        />
+      </div>
+    );
+  }
+
+  // Only show for individual users
+  if (user.type !== 'individual') {
+    return (
+      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
+        <div className="max-w-md mx-auto text-center">
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <div className="text-6xl mb-4">🏢</div>
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Company Account</h1>
+            <p className="text-gray-600 mb-6">
+              CV Builder is only available for individual users. Companies can access their dashboard instead.
+            </p>
+            <button
+              onClick={() => router.push('/dashboard')}
+              className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+            >
+              Go to Dashboard
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const sections = [
     { id: 'overview' as CVSection, name: 'Overview', icon: '📊' },

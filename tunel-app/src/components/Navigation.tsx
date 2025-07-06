@@ -38,9 +38,9 @@ export default function Navigation() {
     ...(user ? [
       user.type === 'individual' 
         ? { href: '/my-applications', label: 'My Applications' }
-        : { href: '/dashboard', label: 'Dashboard' }
+        : { href: '/dashboard', label: 'Dashboard' },
+      ...(user.type === 'individual' ? [{ href: '/profile', label: t.nav.profile }] : [])
     ] : []),
-    { href: '/profile', label: t.nav.profile },
   ];
 
   return (
