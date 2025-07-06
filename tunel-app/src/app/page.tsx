@@ -2,9 +2,14 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/contexts/AuthContext";
+import { useState } from "react";
+import LoginModal from "@/components/auth/LoginModal";
 
 export default function Home() {
   const { t } = useLanguage();
+  const { user } = useAuth();
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -107,6 +112,190 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Success Stories Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Success Stories
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  MA
+                </div>
+                <div>
+                  <h4 className="font-semibold">Mehmet Akın</h4>
+                  <p className="text-gray-600 text-sm">Frontend Developer</p>
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4">
+                &quot;Found my dream job at a Berlin startup through Tunel. The visa process was seamless and the company was incredibly supportive.&quot;
+              </p>
+              <div className="flex items-center text-sm text-gray-500">
+                <span>🇩🇪 Berlin, Germany</span>
+                <span className="mx-2">•</span>
+                <span>€65,000/year</span>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  AY
+                </div>
+                <div>
+                  <h4 className="font-semibold">Ayşe Yılmaz</h4>
+                  <p className="text-gray-600 text-sm">Full Stack Developer</p>
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4">
+                &quot;Relocated to Amsterdam with my family. The job market insights and company culture information helped me choose the perfect fit.&quot;
+              </p>
+              <div className="flex items-center text-sm text-gray-500">
+                <span>🇳🇱 Amsterdam, Netherlands</span>
+                <span className="mx-2">•</span>
+                <span>€70,000/year</span>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  EK
+                </div>
+                <div>
+                  <h4 className="font-semibold">Emre Kaya</h4>
+                  <p className="text-gray-600 text-sm">DevOps Engineer</p>
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4">
+                &quot;Tunel connected me with innovative companies in Zurich. The detailed job descriptions and tech stack information was invaluable.&quot;
+              </p>
+              <div className="flex items-center text-sm text-gray-500">
+                <span>🇨🇭 Zurich, Switzerland</span>
+                <span className="mx-2">•</span>
+                <span>€85,000/year</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Companies Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Trusted by Leading Companies
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-center h-16">
+              <span className="text-2xl font-bold text-blue-600">Spotify</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-center h-16">
+              <span className="text-2xl font-bold text-green-600">Adyen</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-center h-16">
+              <span className="text-2xl font-bold text-purple-600">Klarna</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-center h-16">
+              <span className="text-2xl font-bold text-orange-600">Delivery Hero</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-center h-16">
+              <span className="text-2xl font-bold text-red-600">Takeaway</span>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-center h-16">
+              <span className="text-2xl font-bold text-indigo-600">Bunq</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Jobs Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-3xl font-bold">Latest Opportunities</h2>
+            <Link href="/jobs" className="text-indigo-600 hover:text-indigo-800 font-medium">
+              View All Jobs →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold mr-4">
+                  S
+                </div>
+                <div>
+                  <h3 className="font-semibold">Senior React Developer</h3>
+                  <p className="text-gray-600 text-sm">Spotify</p>
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4 text-sm">
+                Join our team building next-generation music streaming experiences. Remote-first culture with visa sponsorship available.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">React</span>
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">TypeScript</span>
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Node.js</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-500 text-sm">🇸🇪 Stockholm, Sweden</span>
+                <span className="text-indigo-600 font-semibold">€70,000 - €95,000</span>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold mr-4">
+                  A
+                </div>
+                <div>
+                  <h3 className="font-semibold">DevOps Engineer</h3>
+                  <p className="text-gray-600 text-sm">Adyen</p>
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4 text-sm">
+                Scale payment infrastructure for global merchants. Work with cutting-edge cloud technologies and microservices.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">AWS</span>
+                <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Kubernetes</span>
+                <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Docker</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-500 text-sm">🇳🇱 Amsterdam, Netherlands</span>
+                <span className="text-indigo-600 font-semibold">€65,000 - €85,000</span>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold mr-4">
+                  K
+                </div>
+                <div>
+                  <h3 className="font-semibold">Full Stack Developer</h3>
+                  <p className="text-gray-600 text-sm">Klarna</p>
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4 text-sm">
+                Build the future of payments and shopping. Join our diverse team with excellent benefits and growth opportunities.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Python</span>
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">React</span>
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">PostgreSQL</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-500 text-sm">🇩🇪 Berlin, Germany</span>
+                <span className="text-indigo-600 font-semibold">€60,000 - €80,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-indigo-600 text-white">
         <div className="container mx-auto px-4 text-center">
@@ -117,21 +306,37 @@ export default function Home() {
             {t.home.cta.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/auth/register"
-              className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
-            >
-              {t.home.cta.register}
-            </Link>
-            <Link
-              href="/jobs"
-              className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition-colors"
-            >
-              {t.home.cta.browseJobs}
-            </Link>
+            {user ? (
+              <Link
+                href="/jobs"
+                className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+              >
+                Explore Jobs
+              </Link>
+            ) : (
+              <>
+                <button
+                  onClick={() => setIsLoginModalOpen(true)}
+                  className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                >
+                  {t.home.cta.register}
+                </button>
+                <Link
+                  href="/jobs"
+                  className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition-colors"
+                >
+                  {t.home.cta.browseJobs}
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </section>
+      
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+      />
     </div>
   );
 }

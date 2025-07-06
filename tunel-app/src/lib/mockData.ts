@@ -17,10 +17,13 @@ export interface Job {
   location: string;
   country: string;
   salary: string;
-  type: 'Full-time' | 'Part-time' | 'Contract' | 'Remote';
+  salaryMin: number;
+  salaryMax: number;
+  type: 'full-time' | 'part-time' | 'contract' | 'remote';
   technologies: string[];
-  experienceLevel: 'Entry' | 'Mid' | 'Senior' | 'Lead';
+  experienceLevel: 'junior' | 'mid' | 'senior' | 'lead';
   visaSponsorship: boolean;
+  remote: boolean;
   postedDate: string;
   applicationDeadline: string;
   companyLogo?: string;
@@ -122,10 +125,13 @@ export const mockJobs: Job[] = [
     location: 'Amsterdam',
     country: 'Hollanda',
     salary: '€70,000 - €90,000',
-    type: 'Full-time',
+    salaryMin: 70000,
+    salaryMax: 90000,
+    type: 'full-time',
     technologies: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS'],
-    experienceLevel: 'Senior',
+    experienceLevel: 'senior',
     visaSponsorship: true,
+    remote: true,
     postedDate: '2024-01-15',
     applicationDeadline: '2024-02-15'
   },
@@ -209,10 +215,13 @@ export const mockJobs: Job[] = [
     location: 'Berlin',
     country: 'Almanya',
     salary: '€55,000 - €70,000',
-    type: 'Full-time',
+    salaryMin: 55000,
+    salaryMax: 70000,
+    type: 'full-time',
     technologies: ['Vue.js', 'JavaScript', 'Sass', 'Webpack', 'Docker'],
-    experienceLevel: 'Mid',
+    experienceLevel: 'mid',
     visaSponsorship: true,
+    remote: false,
     postedDate: '2024-01-10',
     applicationDeadline: '2024-02-10'
   },
@@ -296,10 +305,13 @@ export const mockJobs: Job[] = [
     location: 'Paris',
     country: 'Fransa',
     salary: '€60,000 - €80,000',
-    type: 'Full-time',
+    salaryMin: 60000,
+    salaryMax: 80000,
+    type: 'full-time',
     technologies: ['Docker', 'Kubernetes', 'AWS', 'Terraform', 'Python'],
-    experienceLevel: 'Mid',
+    experienceLevel: 'mid',
     visaSponsorship: true,
+    remote: true,
     postedDate: '2024-01-12',
     applicationDeadline: '2024-02-12'
   }

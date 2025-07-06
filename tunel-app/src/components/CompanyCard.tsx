@@ -10,7 +10,7 @@ interface CompanyCardProps {
 }
 
 export default function CompanyCard({ company, onFollow }: CompanyCardProps) {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const [isFollowing, setIsFollowing] = useState(company.isFollowing || false);
   
   const currentTranslation = company.translations[language];

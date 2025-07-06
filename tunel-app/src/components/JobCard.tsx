@@ -3,9 +3,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 interface JobCardProps {
   job: Job;
+  onApply?: () => void;
 }
 
-export default function JobCard({ job }: JobCardProps) {
+export default function JobCard({ job, onApply }: JobCardProps) {
   const { t, language } = useLanguage();
   
   const formatDate = (dateString: string) => {
@@ -102,7 +103,10 @@ export default function JobCard({ job }: JobCardProps) {
           <p>{t.jobs.card.applicationDeadline}: {formatDate(job.applicationDeadline)}</p>
         </div>
         <div className="flex gap-2">
-          <button className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors font-medium">
+          <button 
+            onClick={onApply}
+            className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors font-medium"
+          >
             {t.jobs.card.apply}
           </button>
           <button className="border border-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-50 transition-colors">
