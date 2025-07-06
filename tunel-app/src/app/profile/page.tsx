@@ -32,27 +32,34 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+      <div className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 animate-pulse">Loading your profile...</p>
+        </div>
       </div>
     );
   }
 
   if (!user) {
     return (
-      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
+      <div className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 min-h-screen flex items-center justify-center p-4">
         <div className="max-w-md mx-auto text-center">
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <div className="text-6xl mb-4">🔒</div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Login Required</h1>
-            <p className="text-gray-600 mb-6">
-              You need to sign in to access your profile and CV builder.
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 p-8">
+            <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="text-3xl text-white">🔒</div>
+            </div>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
+              Login Required
+            </h1>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              You need to sign in to access your profile and CV builder. Create your professional CV with our AI-powered tools.
             </p>
             <button
               onClick={() => setIsLoginModalOpen(true)}
-              className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+              className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
-              Sign In
+              Sign In to Continue
             </button>
           </div>
         </div>
@@ -72,17 +79,21 @@ export default function ProfilePage() {
   // Only show for individual users
   if (user.type !== 'individual') {
     return (
-      <div className="bg-gray-50 min-h-screen flex items-center justify-center">
+      <div className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 min-h-screen flex items-center justify-center p-4">
         <div className="max-w-md mx-auto text-center">
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <div className="text-6xl mb-4">🏢</div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Company Account</h1>
-            <p className="text-gray-600 mb-6">
-              CV Builder is only available for individual users. Companies can access their dashboard instead.
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 p-8">
+            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="text-3xl text-white">🏢</div>
+            </div>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+              Company Account
+            </h1>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              CV Builder is only available for individual users. Companies can access their dashboard to manage job postings and applications.
             </p>
             <button
               onClick={() => router.push('/dashboard')}
-              className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Go to Dashboard
             </button>
