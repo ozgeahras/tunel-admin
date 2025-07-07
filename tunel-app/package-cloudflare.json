@@ -1,0 +1,24 @@
+{
+  "name": "tunel-admin-cloudflare",
+  "version": "1.0.0",
+  "description": "Tunel Admin API for Cloudflare Workers",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "esbuild src/index.ts --bundle --outfile=dist/index.js --format=esm --platform=neutral --target=es2022",
+    "test": "echo 'No tests specified' && exit 0"
+  },
+  "dependencies": {
+    "hono": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "esbuild": "^0.20.0",
+    "wrangler": "^3.78.0",
+    "typescript": "^5.3.0"
+  },
+  "keywords": ["cloudflare", "workers", "api", "tunel", "admin"],
+  "author": "Tunel Team",
+  "license": "MIT"
+}
