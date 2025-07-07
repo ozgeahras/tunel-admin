@@ -1,9 +1,10 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import LoginModal from "@/components/auth/LoginModal";
 
 export default function Home() {
