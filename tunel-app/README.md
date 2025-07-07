@@ -64,10 +64,11 @@ Visit [http://localhost:3000](http://localhost:3000) to see the application.
 - **Frontend**: Next.js 15, React 19, TypeScript
 - **Styling**: Tailwind CSS v4, SCSS
 - **Database**: Supabase (PostgreSQL)
-- **Authentication**: Supabase Auth
+- **Authentication**: Supabase Auth + JWT for Admin
 - **State Management**: React Context
 - **Internationalization**: Custom i18n context
-- **Deployment**: Vercel (recommended)
+- **Admin Backend**: Cloudflare Workers with Hono framework
+- **Deployment**: Cloudflare Pages (Frontend) + Cloudflare Workers (Admin API)
 
 ## 📁 Project Structure
 
@@ -119,20 +120,31 @@ Add new translations in `src/contexts/LanguageContext.tsx`.
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Cloudflare Pages (Current)
 
-1. Push your code to GitHub
-2. Connect your repository to [Vercel](https://vercel.com)
-3. Add environment variables in Vercel dashboard
-4. Deploy!
+**Frontend Deployment:**
+1. Connect GitHub repository to Cloudflare Pages
+2. Build command: `npm run build`
+3. Output directory: `out`
+4. Automatic deployments from main branch
 
-### Other Platforms
+**Admin API Deployment:**
+1. Admin API runs on Cloudflare Workers
+2. Repository: https://github.com/ozgeahras/tunel-admin
+3. Automatic deployment on push to main
+4. Global edge deployment for optimal performance
 
-The app can be deployed to any platform supporting Node.js:
-- Netlify
-- Railway
-- Render
-- DigitalOcean App Platform
+### Environment Variables
+
+**Frontend (Cloudflare Pages):**
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+**Admin API (Cloudflare Workers):**
+- `ADMIN_EMAIL`
+- `ADMIN_PASSWORD` 
+- `JWT_SECRET`
+- `NODE_ENV`
 
 ## 🛠️ Development
 
