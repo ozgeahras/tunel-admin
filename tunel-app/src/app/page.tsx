@@ -1,10 +1,9 @@
 'use client';
 
 import Link from "next/link";
-import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { useState, Suspense } from "react";
+import { useState } from "react";
 import LoginModal from "@/components/auth/LoginModal";
 
 export default function Home() {
@@ -196,7 +195,7 @@ export default function Home() {
             Trusted by Leading Companies
           </h2>
           <p className="text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto">
-            Join thousands of developers working at Europe's most innovative companies
+            Join thousands of developers working at Europe&apos;s most innovative companies
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
             <div className="bg-gradient-to-br from-white to-blue-50/50 p-6 rounded-2xl shadow-lg border border-blue-100/50 flex items-center justify-center h-20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
