@@ -87,7 +87,7 @@ export default function JobsPage() {
   }, [t.home.allCountries, selectedCountry]);
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors">
+    <div className="bg-[var(--background)] min-h-screen transition-colors">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -98,7 +98,7 @@ export default function JobsPage() {
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8 transition-colors">
+        <div className="bg-[var(--card-background)] rounded-lg border border-[var(--border-color)] p-6 mb-8 transition-colors">
           <form onSubmit={handleSearch} className="space-y-4">
             {/* Main search bar */}
             <div className="flex flex-col md:flex-row gap-4">
@@ -108,14 +108,14 @@ export default function JobsPage() {
                   placeholder={t.jobs.searchPlaceholder}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-3 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] placeholder-[var(--text-muted)]"
                 />
               </div>
               <div className="md:w-64">
                 <select
                   value={selectedCountry}
                   onChange={(e) => setSelectedCountry(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-3 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] placeholder-[var(--text-muted)]"
                 >
                   {countries.map(country => (
                     <option key={country} value={country}>
@@ -126,20 +126,20 @@ export default function JobsPage() {
               </div>
               <button
                 type="submit"
-                className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+                className="bg-[var(--primary)] text-[var(--surface)] px-6 py-3 rounded-lg hover:bg-[var(--primary-hover)] transition-colors font-medium"
               >
                 {t.jobs.filterButton}
               </button>
             </div>
             
             {/* Advanced filters */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-[var(--border-color)]">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Experience Level</label>
+                <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">Experience Level</label>
                 <select
                   value={selectedExperience}
                   onChange={(e) => setSelectedExperience(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                 >
                   <option value="">All Levels</option>
                   <option value="junior">Junior (0-2 years)</option>
@@ -150,11 +150,11 @@ export default function JobsPage() {
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Job Type</label>
+                <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">Job Type</label>
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                 >
                   <option value="">All Types</option>
                   <option value="full-time">Full-time</option>
@@ -165,22 +165,22 @@ export default function JobsPage() {
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Min. Salary (EUR)</label>
+                <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">Min. Salary (EUR)</label>
                 <input
                   type="number"
                   value={salaryMin}
                   onChange={(e) => setSalaryMin(e.target.value)}
                   placeholder="e.g., 50000"
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sort By</label>
+                <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">Sort By</label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                 >
                   <option value="latest">Latest Posted</option>
                   <option value="salary-high">Salary: High to Low</option>
@@ -198,7 +198,7 @@ export default function JobsPage() {
                   onChange={(e) => setRemoteOnly(e.target.checked)}
                   className="mr-2 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                 />
-                <span className="text-sm text-gray-700 dark:text-gray-300">Remote Work Available</span>
+                <span className="text-sm text-[var(--text-secondary)]">Remote Work Available</span>
               </label>
               
               <label className="flex items-center">
@@ -208,7 +208,7 @@ export default function JobsPage() {
                   onChange={(e) => setVisaSponsorshipOnly(e.target.checked)}
                   className="mr-2 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                 />
-                <span className="text-sm text-gray-700 dark:text-gray-300">Visa Sponsorship Available</span>
+                <span className="text-sm text-[var(--text-secondary)]">Visa Sponsorship Available</span>
               </label>
             </div>
           </form>
@@ -251,10 +251,10 @@ export default function JobsPage() {
             ) : (
               <div className="text-center py-12">
                 <div className="text-gray-400 text-6xl mb-4">🔍</div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
                   {t.jobs.noResults.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-[var(--text-muted)] mb-4">
                   {t.jobs.noResults.description}
                 </p>
                 <button 
@@ -267,7 +267,7 @@ export default function JobsPage() {
                     setRemoteOnly(false);
                     setVisaSponsorshipOnly(false);
                   }}
-                  className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors"
+                  className="bg-[var(--primary)] text-[var(--surface)] px-4 py-2 rounded hover:bg-[var(--primary-hover)] transition-colors"
                 >
                   {t.jobs.noResults.clearFilters}
                 </button>

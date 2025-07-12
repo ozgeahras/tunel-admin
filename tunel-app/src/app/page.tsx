@@ -11,9 +11,9 @@ export default function Home() {
   const { user } = useAuth();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   return (
-    <div className="bg-white dark:bg-gray-900 transition-colors">
+    <div className="bg-[var(--background)] transition-colors">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white py-20">
+      <section className="bg-[var(--primary)] text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">
             {t.home.title}
@@ -23,16 +23,16 @@ export default function Home() {
           </p>
           
           {/* Search Bar */}
-          <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-4 flex flex-col md:flex-row gap-4">
+          <div className="max-w-4xl mx-auto bg-[var(--card-background)] rounded-lg shadow-lg p-4 flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <input
                 type="text"
                 placeholder={t.home.searchPlaceholder}
-                className="w-full px-4 py-3 text-gray-700 dark:text-white bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder-gray-500 dark:placeholder-gray-400"
+                className="w-full px-4 py-3 text-[var(--text-primary)] bg-[var(--input-background)] border border-[var(--input-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] placeholder-[var(--text-muted)]"
               />
             </div>
             <div className="flex-1">
-              <select className="w-full px-4 py-3 text-gray-700 dark:text-white bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <select className="w-full px-4 py-3 text-[var(--text-primary)] bg-[var(--input-background)] border border-[var(--input-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
                 <option>{t.home.allCountries}</option>
                 <option>Almanya</option>
                 <option>Hollanda</option>
@@ -41,7 +41,7 @@ export default function Home() {
                 <option>İsviçre</option>
               </select>
             </div>
-            <button className="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors font-medium">
+            <button className="bg-[var(--primary)] text-white px-8 py-3 rounded-lg hover:bg-[var(--primary-hover)] transition-colors font-medium">
               {t.home.searchButton}
             </button>
           </div>
@@ -49,65 +49,65 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-indigo-50/30">
+      <section className="py-16 bg-[var(--surface)]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/50 dark:border-gray-700/50 transition-colors">
-              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3">500+</div>
-              <div className="text-gray-900 dark:text-white font-semibold text-lg">{t.home.stats.jobs}</div>
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-lg border border-[var(--border-color)] transition-colors">
+              <div className="text-4xl font-bold text-[var(--primary)] mb-3">500+</div>
+              <div className="text-[var(--text-primary)] font-semibold text-lg">{t.home.stats.jobs}</div>
             </div>
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/50 dark:border-gray-700/50 transition-colors">
-              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3">50+</div>
-              <div className="text-gray-900 dark:text-white font-semibold text-lg">{t.home.stats.companies}</div>
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-lg border border-[var(--border-color)] transition-colors">
+              <div className="text-4xl font-bold text-[var(--primary)] mb-3">50+</div>
+              <div className="text-[var(--text-primary)] font-semibold text-lg">{t.home.stats.companies}</div>
             </div>
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/50 dark:border-gray-700/50 transition-colors">
-              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3">15+</div>
-              <div className="text-gray-900 dark:text-white font-semibold text-lg">{t.home.stats.countries}</div>
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-lg border border-[var(--border-color)] transition-colors">
+              <div className="text-4xl font-bold text-[var(--primary)] mb-3">15+</div>
+              <div className="text-[var(--text-primary)] font-semibold text-lg">{t.home.stats.countries}</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white dark:bg-gray-900 transition-colors">
+      <section className="py-16 bg-[var(--background)] transition-colors">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-center text-[var(--text-primary)] mb-4">
             {t.home.whyTunel}
           </h2>
-          <p className="text-xl text-center text-gray-700 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-center text-[var(--text-secondary)] mb-16 max-w-3xl mx-auto">
             Discover why thousands of Turkish developers choose Tunel for their European career journey
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-gradient-to-br from-white to-indigo-50/50 dark:from-gray-800 dark:to-gray-800/80 rounded-2xl shadow-lg border border-indigo-100/50 dark:border-gray-700 transition-colors">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="text-center p-8 bg-[var(--card-background)] rounded-2xl shadow-lg border border-[var(--border-color)] transition-colors">
+              <div className="w-20 h-20 bg-[var(--primary)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t.home.features.visaOnly.title}</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">{t.home.features.visaOnly.title}</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed text-lg">
                 {t.home.features.visaOnly.description}
               </p>
             </div>
-            <div className="text-center p-8 bg-gradient-to-br from-white to-indigo-50/50 dark:from-gray-800 dark:to-gray-800/80 rounded-2xl shadow-lg border border-indigo-100/50 dark:border-gray-700 transition-colors">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="text-center p-8 bg-[var(--card-background)] rounded-2xl shadow-lg border border-[var(--border-color)] transition-colors">
+              <div className="w-20 h-20 bg-[var(--primary)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t.home.features.smartFiltering.title}</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">{t.home.features.smartFiltering.title}</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed text-lg">
                 {t.home.features.smartFiltering.description}
               </p>
             </div>
-            <div className="text-center p-8 bg-gradient-to-br from-white to-indigo-50/50 dark:from-gray-800 dark:to-gray-800/80 rounded-2xl shadow-lg border border-indigo-100/50 dark:border-gray-700 transition-colors">
-              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="text-center p-8 bg-[var(--card-background)] rounded-2xl shadow-lg border border-[var(--border-color)] transition-colors">
+              <div className="w-20 h-20 bg-[var(--primary)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t.home.features.turkishProfessionals.title}</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">{t.home.features.turkishProfessionals.title}</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed text-lg">
                 {t.home.features.turkishProfessionals.description}
               </p>
             </div>
@@ -116,69 +116,69 @@ export default function Home() {
       </section>
 
       {/* Success Stories Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-indigo-50/30 dark:from-gray-800 dark:to-gray-800/30 transition-colors">
+      <section className="py-16 bg-[var(--surface)] transition-colors">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-center text-[var(--text-primary)] mb-4">
             Success Stories
           </h2>
-          <p className="text-xl text-center text-gray-700 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-center text-[var(--text-secondary)] mb-16 max-w-3xl mx-auto">
             Real stories from Turkish developers who found their dream jobs in Europe
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/90 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 dark:border-gray-700 transition-colors">
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-xl border border-[var(--border-color)] transition-colors">
               <div className="flex items-center mb-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4 text-lg">
+                <div className="w-14 h-14 bg-[var(--primary)] rounded-full flex items-center justify-center text-white font-bold mr-4 text-lg">
                   MA
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-gray-900 dark:text-white">Mehmet Akın</h4>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">Frontend Developer</p>
+                  <h4 className="font-bold text-lg text-[var(--text-primary)]">Mehmet Akın</h4>
+                  <p className="text-[var(--text-secondary)] font-medium">Frontend Developer</p>
                 </div>
               </div>
-              <p className="text-gray-800 dark:text-gray-300 mb-4 text-lg leading-relaxed">
+              <p className="text-[var(--text-secondary)] mb-4 text-lg leading-relaxed">
                 &quot;Found my dream job at a Berlin startup through Tunel. The visa process was seamless and the company was incredibly supportive.&quot;
               </p>
-              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-center text-sm text-[var(--text-muted)]">
                 <span>🇩🇪 Berlin, Germany</span>
                 <span className="mx-2">•</span>
                 <span>€65,000/year</span>
               </div>
             </div>
             
-            <div className="bg-white/90 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 dark:border-gray-700 transition-colors">
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-xl border border-[var(--border-color)] transition-colors">
               <div className="flex items-center mb-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4 text-lg">
+                <div className="w-14 h-14 bg-[var(--primary)] rounded-full flex items-center justify-center text-white font-bold mr-4 text-lg">
                   AY
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-gray-900 dark:text-white">Ayşe Yılmaz</h4>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">Full Stack Developer</p>
+                  <h4 className="font-bold text-lg text-[var(--text-primary)]">Ayşe Yılmaz</h4>
+                  <p className="text-[var(--text-secondary)] font-medium">Full Stack Developer</p>
                 </div>
               </div>
-              <p className="text-gray-800 dark:text-gray-300 mb-4 text-lg leading-relaxed">
+              <p className="text-[var(--text-secondary)] mb-4 text-lg leading-relaxed">
                 &quot;Relocated to Amsterdam with my family. The job market insights and company culture information helped me choose the perfect fit.&quot;
               </p>
-              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-center text-sm text-[var(--text-muted)]">
                 <span>🇳🇱 Amsterdam, Netherlands</span>
                 <span className="mx-2">•</span>
                 <span>€70,000/year</span>
               </div>
             </div>
             
-            <div className="bg-white/90 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 dark:border-gray-700 transition-colors">
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-xl border border-[var(--border-color)] transition-colors">
               <div className="flex items-center mb-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4 text-lg">
+                <div className="w-14 h-14 bg-[var(--primary)] rounded-full flex items-center justify-center text-white font-bold mr-4 text-lg">
                   EK
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-gray-900 dark:text-white">Emre Kaya</h4>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">DevOps Engineer</p>
+                  <h4 className="font-bold text-lg text-[var(--text-primary)]">Emre Kaya</h4>
+                  <p className="text-[var(--text-secondary)] font-medium">DevOps Engineer</p>
                 </div>
               </div>
-              <p className="text-gray-800 dark:text-gray-300 mb-4 text-lg leading-relaxed">
+              <p className="text-[var(--text-secondary)] mb-4 text-lg leading-relaxed">
                 &quot;Tunel connected me with innovative companies in Zurich. The detailed job descriptions and tech stack information was invaluable.&quot;
               </p>
-              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-center text-sm text-[var(--text-muted)]">
                 <span>🇨🇭 Zurich, Switzerland</span>
                 <span className="mx-2">•</span>
                 <span>€85,000/year</span>
@@ -189,119 +189,119 @@ export default function Home() {
       </section>
 
       {/* Featured Companies Section */}
-      <section className="py-16 bg-white dark:bg-gray-900 transition-colors">
+      <section className="py-16 bg-[var(--background)] transition-colors">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-center text-[var(--text-primary)] mb-4">
             Trusted by Leading Companies
           </h2>
-          <p className="text-xl text-center text-gray-700 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-center text-[var(--text-secondary)] mb-16 max-w-3xl mx-auto">
             Join thousands of developers working at Europe&apos;s most innovative companies
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
-            <div className="bg-gradient-to-br from-white to-blue-50/50 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl shadow-lg border border-blue-100/50 dark:border-gray-700 flex items-center justify-center h-20 transition-colors">
-              <span className="text-2xl font-bold text-blue-600">Spotify</span>
+            <div className="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg border border-[var(--border-color)] flex items-center justify-center h-20 transition-colors">
+              <span className="text-2xl font-bold text-[var(--primary)]">Spotify</span>
             </div>
-            <div className="bg-gradient-to-br from-white to-green-50/50 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl shadow-lg border border-green-100/50 dark:border-gray-700 flex items-center justify-center h-20 transition-colors">
-              <span className="text-2xl font-bold text-green-600">Adyen</span>
+            <div className="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg border border-[var(--border-color)] flex items-center justify-center h-20 transition-colors">
+              <span className="text-2xl font-bold text-[var(--primary)]">Adyen</span>
             </div>
-            <div className="bg-gradient-to-br from-white to-purple-50/50 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl shadow-lg border border-purple-100/50 dark:border-gray-700 flex items-center justify-center h-20 transition-colors">
-              <span className="text-2xl font-bold text-purple-600">Klarna</span>
+            <div className="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg border border-[var(--border-color)] flex items-center justify-center h-20 transition-colors">
+              <span className="text-2xl font-bold text-[var(--primary)]">Klarna</span>
             </div>
-            <div className="bg-gradient-to-br from-white to-orange-50/50 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl shadow-lg border border-orange-100/50 dark:border-gray-700 flex items-center justify-center h-20 transition-colors">
-              <span className="text-xl font-bold text-orange-600">Delivery Hero</span>
+            <div className="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg border border-[var(--border-color)] flex items-center justify-center h-20 transition-colors">
+              <span className="text-xl font-bold text-[var(--primary)]">Delivery Hero</span>
             </div>
-            <div className="bg-gradient-to-br from-white to-red-50/50 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl shadow-lg border border-red-100/50 dark:border-gray-700 flex items-center justify-center h-20 transition-colors">
-              <span className="text-2xl font-bold text-red-600">Takeaway</span>
+            <div className="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg border border-[var(--border-color)] flex items-center justify-center h-20 transition-colors">
+              <span className="text-2xl font-bold text-[var(--primary)]">Takeaway</span>
             </div>
-            <div className="bg-gradient-to-br from-white to-indigo-50/50 dark:from-gray-800 dark:to-gray-800/80 p-6 rounded-2xl shadow-lg border border-indigo-100/50 dark:border-gray-700 flex items-center justify-center h-20 transition-colors">
-              <span className="text-2xl font-bold text-indigo-600">Bunq</span>
+            <div className="bg-[var(--card-background)] p-6 rounded-2xl shadow-lg border border-[var(--border-color)] flex items-center justify-center h-20 transition-colors">
+              <span className="text-2xl font-bold text-[var(--primary)]">Bunq</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Latest Jobs Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-indigo-50/30 dark:from-gray-800 dark:to-gray-800/30 transition-colors">
+      <section className="py-16 bg-[var(--surface)] transition-colors">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-12">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Latest Opportunities</h2>
-              <p className="text-xl text-gray-700 dark:text-gray-300">Fresh openings from top European companies</p>
+              <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-4">Latest Opportunities</h2>
+              <p className="text-xl text-[var(--text-secondary)]">Fresh openings from top European companies</p>
             </div>
-            <Link href="/jobs" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-lg">
+            <Link href="/jobs" className="bg-[var(--primary)] text-white px-6 py-3 rounded-xl hover:bg-[var(--primary-hover)] transition-colors font-medium shadow-lg">
               View All Jobs →
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white/90 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 dark:border-gray-700 transition-colors">
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-xl border border-[var(--border-color)] transition-colors">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white font-bold mr-4 text-xl shadow-lg">
+                <div className="w-16 h-16 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white font-bold mr-4 text-xl shadow-lg">
                   S
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl text-gray-900 dark:text-white">Senior React Developer</h3>
-                  <p className="text-gray-800 dark:text-gray-300 font-semibold text-lg">Spotify</p>
+                  <h3 className="font-bold text-xl text-[var(--text-primary)]">Senior React Developer</h3>
+                  <p className="text-[var(--text-secondary)] font-semibold text-lg">Spotify</p>
                 </div>
               </div>
-              <p className="text-gray-800 dark:text-gray-300 mb-6 text-base leading-relaxed">
+              <p className="text-[var(--text-secondary)] mb-6 text-base leading-relaxed">
                 Join our team building next-generation music streaming experiences. Remote-first culture with visa sponsorship available.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-lg text-sm font-medium">React</span>
-                <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-lg text-sm font-medium">TypeScript</span>
-                <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-lg text-sm font-medium">Node.js</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">React</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">TypeScript</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">Node.js</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-700 dark:text-gray-300 font-medium">🇸🇪 Stockholm, Sweden</span>
-                <span className="text-indigo-600 font-bold text-lg">€70,000 - €95,000</span>
+                <span className="text-[var(--text-secondary)] font-medium">🇸🇪 Stockholm, Sweden</span>
+                <span className="text-[var(--primary)] font-bold text-lg">€70,000 - €95,000</span>
               </div>
             </div>
             
-            <div className="bg-white/90 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 dark:border-gray-700 transition-colors">
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-xl border border-[var(--border-color)] transition-colors">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center text-white font-bold mr-4 text-xl shadow-lg">
+                <div className="w-16 h-16 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white font-bold mr-4 text-xl shadow-lg">
                   A
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl text-gray-900 dark:text-white">DevOps Engineer</h3>
-                  <p className="text-gray-800 dark:text-gray-300 font-semibold text-lg">Adyen</p>
+                  <h3 className="font-bold text-xl text-[var(--text-primary)]">DevOps Engineer</h3>
+                  <p className="text-[var(--text-secondary)] font-semibold text-lg">Adyen</p>
                 </div>
               </div>
-              <p className="text-gray-800 dark:text-gray-300 mb-6 text-base leading-relaxed">
+              <p className="text-[var(--text-secondary)] mb-6 text-base leading-relaxed">
                 Scale payment infrastructure for global merchants. Work with cutting-edge cloud technologies and microservices.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                <span className="bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 px-3 py-1 rounded-lg text-sm font-medium">AWS</span>
-                <span className="bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 px-3 py-1 rounded-lg text-sm font-medium">Kubernetes</span>
-                <span className="bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 px-3 py-1 rounded-lg text-sm font-medium">Docker</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">AWS</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">Kubernetes</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">Docker</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-700 dark:text-gray-300 font-medium">🇳🇱 Amsterdam, Netherlands</span>
-                <span className="text-indigo-600 font-bold text-lg">€65,000 - €85,000</span>
+                <span className="text-[var(--text-secondary)] font-medium">🇳🇱 Amsterdam, Netherlands</span>
+                <span className="text-[var(--primary)] font-bold text-lg">€65,000 - €85,000</span>
               </div>
             </div>
             
-            <div className="bg-white/90 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/50 dark:border-gray-700 transition-colors">
+            <div className="bg-[var(--card-background)] p-8 rounded-2xl shadow-xl border border-[var(--border-color)] transition-colors">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold mr-4 text-xl shadow-lg">
+                <div className="w-16 h-16 bg-[var(--primary)] rounded-2xl flex items-center justify-center text-white font-bold mr-4 text-xl shadow-lg">
                   K
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl text-gray-900 dark:text-white">Full Stack Developer</h3>
-                  <p className="text-gray-800 dark:text-gray-300 font-semibold text-lg">Klarna</p>
+                  <h3 className="font-bold text-xl text-[var(--text-primary)]">Full Stack Developer</h3>
+                  <p className="text-[var(--text-secondary)] font-semibold text-lg">Klarna</p>
                 </div>
               </div>
-              <p className="text-gray-800 dark:text-gray-300 mb-6 text-base leading-relaxed">
+              <p className="text-[var(--text-secondary)] mb-6 text-base leading-relaxed">
                 Build the future of payments and shopping. Join our diverse team with excellent benefits and growth opportunities.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                <span className="bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-lg text-sm font-medium">Python</span>
-                <span className="bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-lg text-sm font-medium">React</span>
-                <span className="bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-lg text-sm font-medium">PostgreSQL</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">Python</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">React</span>
+                <span className="bg-[var(--surface)] text-[var(--primary)] px-3 py-1 rounded-lg text-sm font-medium">PostgreSQL</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-700 dark:text-gray-300 font-medium">🇩🇪 Berlin, Germany</span>
-                <span className="text-indigo-600 font-bold text-lg">€60,000 - €80,000</span>
+                <span className="text-[var(--text-secondary)] font-medium">🇩🇪 Berlin, Germany</span>
+                <span className="text-[var(--primary)] font-bold text-lg">€60,000 - €80,000</span>
               </div>
             </div>
           </div>
@@ -309,7 +309,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-indigo-600 text-white">
+      <section className="py-16 bg-[var(--primary)] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             {t.home.cta.title}
@@ -321,7 +321,7 @@ export default function Home() {
             {user ? (
               <Link
                 href="/jobs"
-                className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                className="bg-[var(--card-background)] text-[var(--primary)] px-8 py-3 rounded-lg font-medium hover:bg-[var(--surface)] transition-colors"
               >
                 Explore Jobs
               </Link>
@@ -329,13 +329,13 @@ export default function Home() {
               <>
                 <button
                   onClick={() => setIsLoginModalOpen(true)}
-                  className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                  className="bg-[var(--card-background)] text-[var(--primary)] px-8 py-3 rounded-lg font-medium hover:bg-[var(--surface)] transition-colors"
                 >
                   {t.home.cta.register}
                 </button>
                 <Link
                   href="/jobs"
-                  className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition-colors"
+                  className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-[var(--card-background)] hover:text-[var(--primary)] transition-colors"
                 >
                   {t.home.cta.browseJobs}
                 </Link>

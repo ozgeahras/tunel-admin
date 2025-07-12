@@ -1,58 +1,114 @@
 @import "tailwindcss";
 
+/* 
+  New Color System:
+  - 3 Main Colors: Primary (#3b82f6 - soft blue), Secondary (#1e293b), Surface (#f8fafc)
+  - 2 Text Colors: Primary (#0f172a), Secondary (#64748b)
+  - Soft, consistent, high contrast
+*/
+
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --card-background: #1a1a1a;
-  --border-color: #333333;
-  --input-background: #1f1f1f;
-  --input-border: #404040;
-  --text-muted: #a3a3a3;
+  /* Dark Theme (Default) - Soft, warm grays */
+  --background: #0f172a;
+  --surface: #1e293b;
+  --card-background: #334155;
+  --border-color: #475569;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  
+  /* Text Colors - Softer, less harsh */
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Form Elements */
+  --input-background: #334155;
+  --input-border: #475569;
+  --input-focus: #3b82f6;
 }
 
 .light {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Theme - Clean, soft tones */
+  --background: #f8fafc;
+  --surface: #ffffff;
   --card-background: #ffffff;
-  --border-color: #e5e7eb;
+  --border-color: #e2e8f0;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  
+  /* Text Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  
+  /* Form Elements */
   --input-background: #ffffff;
-  --input-border: #d1d5db;
-  --text-muted: #6b7280;
+  --input-border: #e2e8f0;
+  --input-focus: #3b82f6;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
   --color-card-background: var(--card-background);
   --color-border: var(--border-color);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
   --color-input-background: var(--input-background);
   --color-input-border: var(--input-border);
-  --color-text-muted: var(--text-muted);
+  --color-input-focus: var(--input-focus);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom input placeholder styling for dark theme */
+/* Form Element Styling */
 input::placeholder, textarea::placeholder {
   color: var(--text-muted);
   opacity: 1;
 }
 
-/* Improved contrast for form elements */
 input, select, textarea {
   background-color: var(--input-background);
   border-color: var(--input-border);
-  color: var(--foreground);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.card:hover {
+  border-color: var(--primary);
 }
