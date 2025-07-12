@@ -27,13 +27,13 @@ export default function JobCard({ job, onApply }: JobCardProps) {
   const currentTranslation = job.translations[language];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors">
+    <div className="bg-[var(--card-background)] rounded-lg border border-[var(--border-color)] p-6 hover:border-[var(--primary)]/50 transition-all">
       {/* Header */}
       <div className="flex justify-between items-start mb-4">
         <div className="flex-1">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{currentTranslation.title}</h3>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-1">{job.company}</p>
-          <p className="text-gray-600 dark:text-gray-400 mb-2">
+          <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">{currentTranslation.title}</h3>
+          <p className="text-lg text-[var(--text-secondary)] mb-1">{job.company}</p>
+          <p className="text-[var(--text-muted)] mb-2">
             {job.location}, {job.country}
           </p>
         </div>
@@ -105,11 +105,11 @@ export default function JobCard({ job, onApply }: JobCardProps) {
         <div className="flex gap-2">
           <button 
             onClick={onApply}
-            className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors font-medium"
+            className="bg-[var(--primary)] text-[var(--background)] px-4 py-2 rounded hover:bg-[var(--primary-hover)] transition-all font-medium"
           >
             {t.jobs.card.apply}
           </button>
-          <button className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-4 py-2 rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+          <button className="border border-[var(--border-color)] text-[var(--text-secondary)] px-4 py-2 rounded hover:bg-[var(--border-color)]/50 transition-all">
             {t.jobs.card.details}
           </button>
         </div>

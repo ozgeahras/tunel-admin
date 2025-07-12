@@ -98,7 +98,7 @@ export default function JobsPage() {
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-[var(--card-background)] rounded-lg border border-[var(--border-color)] p-6 mb-8 transition-colors">
+        <div className="bg-[var(--surface)] rounded-lg border border-[var(--border-color)] p-6 mb-8 transition-colors">
           <form onSubmit={handleSearch} className="space-y-4">
             {/* Main search bar */}
             <div className="flex flex-col md:flex-row gap-4">
@@ -108,14 +108,14 @@ export default function JobsPage() {
                   placeholder={t.jobs.searchPlaceholder}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] placeholder-[var(--text-muted)]"
+                  className="w-full px-4 py-3 border border-[var(--border-color)] bg-[var(--background)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]/20 placeholder-[var(--text-muted)] transition-all"
                 />
               </div>
               <div className="md:w-64">
                 <select
                   value={selectedCountry}
                   onChange={(e) => setSelectedCountry(e.target.value)}
-                  className="w-full px-4 py-3 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] placeholder-[var(--text-muted)]"
+                  className="w-full px-4 py-3 border border-[var(--border-color)] bg-[var(--background)] text-[var(--text-primary)] rounded-lg focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]/20 placeholder-[var(--text-muted)] transition-all"
                 >
                   {countries.map(country => (
                     <option key={country} value={country}>
@@ -126,7 +126,7 @@ export default function JobsPage() {
               </div>
               <button
                 type="submit"
-                className="bg-[var(--primary)] text-[var(--surface)] px-6 py-3 rounded-lg hover:bg-[var(--primary-hover)] transition-colors font-medium"
+                className="bg-[var(--primary)] text-[var(--background)] px-6 py-3 rounded-lg hover:bg-[var(--primary-hover)] transition-all font-medium border border-[var(--primary)] hover:border-[var(--primary-hover)]"
               >
                 {t.jobs.filterButton}
               </button>
@@ -139,7 +139,7 @@ export default function JobsPage() {
                 <select
                   value={selectedExperience}
                   onChange={(e) => setSelectedExperience(e.target.value)}
-                  className="w-full px-3 py-2 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                  className="w-full px-3 py-2 border border-[var(--border-color)] bg-[var(--background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]/20 transition-all"
                 >
                   <option value="">All Levels</option>
                   <option value="junior">Junior (0-2 years)</option>
@@ -154,7 +154,7 @@ export default function JobsPage() {
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full px-3 py-2 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                  className="w-full px-3 py-2 border border-[var(--border-color)] bg-[var(--background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]/20 transition-all"
                 >
                   <option value="">All Types</option>
                   <option value="full-time">Full-time</option>
@@ -171,7 +171,7 @@ export default function JobsPage() {
                   value={salaryMin}
                   onChange={(e) => setSalaryMin(e.target.value)}
                   placeholder="e.g., 50000"
-                  className="w-full px-3 py-2 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                  className="w-full px-3 py-2 border border-[var(--border-color)] bg-[var(--background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]/20 transition-all"
                 />
               </div>
               
@@ -180,7 +180,7 @@ export default function JobsPage() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-3 py-2 border border-[var(--input-border)] bg-[var(--input-background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                  className="w-full px-3 py-2 border border-[var(--border-color)] bg-[var(--background)] text-[var(--text-primary)] rounded-md focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]/20 transition-all"
                 >
                   <option value="latest">Latest Posted</option>
                   <option value="salary-high">Salary: High to Low</option>

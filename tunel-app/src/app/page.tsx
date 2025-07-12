@@ -23,16 +23,16 @@ export default function Home() {
           </p>
           
           {/* Search Bar */}
-          <div className="max-w-4xl mx-auto bg-[var(--card-background)] rounded-lg shadow-lg p-4 flex flex-col md:flex-row gap-4">
+          <div className="max-w-4xl mx-auto bg-[var(--surface)] rounded-lg border border-[var(--border-color)] p-6 flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <input
                 type="text"
                 placeholder={t.home.searchPlaceholder}
-                className="w-full px-4 py-3 text-[var(--text-primary)] bg-[var(--input-background)] border border-[var(--input-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)] placeholder-[var(--text-muted)]"
+                className="w-full px-4 py-3 text-[var(--text-primary)] bg-[var(--background)] border border-[var(--border-color)] rounded-lg focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]/20 placeholder-[var(--text-muted)] transition-all"
               />
             </div>
             <div className="flex-1">
-              <select className="w-full px-4 py-3 text-[var(--text-primary)] bg-[var(--input-background)] border border-[var(--input-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">
+              <select className="w-full px-4 py-3 text-[var(--text-primary)] bg-[var(--background)] border border-[var(--border-color)] rounded-lg focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]/20 transition-all">
                 <option>{t.home.allCountries}</option>
                 <option>Almanya</option>
                 <option>Hollanda</option>
@@ -41,7 +41,7 @@ export default function Home() {
                 <option>İsviçre</option>
               </select>
             </div>
-            <button className="bg-[var(--primary)] text-white px-8 py-3 rounded-lg hover:bg-[var(--primary-hover)] transition-colors font-medium">
+            <button className="bg-[var(--primary)] text-[var(--background)] px-8 py-3 rounded-lg hover:bg-[var(--primary-hover)] transition-all font-medium border border-[var(--primary)] hover:border-[var(--primary-hover)]">
               {t.home.searchButton}
             </button>
           </div>
